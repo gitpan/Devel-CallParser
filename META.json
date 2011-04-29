@@ -1,0 +1,69 @@
+{
+   "abstract" : "custom parsing attached to subroutines",
+   "author" : [
+      "Andrew Main (Zefram) <zefram@fysh.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110580",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Devel-CallParser",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Devel::CallChecker" : "0.001",
+            "DynaLoader" : 0,
+            "ExtUtils::CBuilder" : "0.15",
+            "ExtUtils::ParseXS" : 0,
+            "File::Spec" : 0,
+            "IO::File" : "1.03",
+            "Module::Build" : 0,
+            "Test::More" : 0,
+            "perl" : "5.011002",
+            "strict" : 0,
+            "warnings" : 0
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : 0,
+            "perl" : "5.011002",
+            "strict" : 0,
+            "warnings" : 0
+         }
+      },
+      "runtime" : {
+         "conflicts" : {
+            "Data::Alias" : 0,
+            "Devel::Declare" : 0
+         },
+         "requires" : {
+            "Devel::CallChecker" : "0.001",
+            "DynaLoader" : 0,
+            "Exporter" : 0,
+            "parent" : 0,
+            "perl" : "5.011002",
+            "strict" : 0,
+            "warnings" : 0
+         }
+      }
+   },
+   "provides" : {
+      "Devel::CallParser" : {
+         "file" : "lib/Devel/CallParser.pm",
+         "version" : 0
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ]
+   },
+   "version" : "0.000"
+}
