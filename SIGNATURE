@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.66.
+signed via the Module::Signature module, version 0.68.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -15,40 +15,40 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 5880ad202dae8ed1258b0f97614daf1ccb57d3a0 .cvsignore
-SHA1 1172332a15b192fcfa2439082cc7e8b3799bd6ce Build.PL
-SHA1 755bf2b18b201a12fe07248d95b71af3f22efc92 Changes
+SHA1 68123b5e97d175e356b45f6608a48c6009f30ade Build.PL
+SHA1 9f60bc77bf31465332fe9211c9dc8b505f88ca10 Changes
 SHA1 aeb58591b65976dde8da38523d9f90d0360b971a MANIFEST
-SHA1 ce6e6268fbb237c76eb2ba011da91893120dd8dc META.json
-SHA1 549bec6e8188507bd792662dd757652099052e69 META.yml
+SHA1 e9b31bc4061061a92808857c8cf7f1e28abeaa6d META.json
+SHA1 37b68bb3d9545e3a2c607c6efa763ef093ee6ccc META.yml
 SHA1 062456d27f39590acabc272ee7856689ceb3fb49 Makefile.PL
 SHA1 9c093e204721bb649141542a8ce1db1612a6c916 README
 SHA1 7c6ee4fff1b3bcc793df3b37eb4687994ffb6b45 lib/Devel/.cvsignore
-SHA1 b7519ae4e444324a5134ce9e45a7085973a4fc7f lib/Devel/CallParser.pm
+SHA1 7e06a954301055ebaf87bff2e9c150660767728b lib/Devel/CallParser.pm
 SHA1 606516b94dff0212ea49616fb147a49f2209a646 lib/Devel/CallParser.xs
-SHA1 1ac60882727a4c247f6f9fef085dc51f9168ddbb t/LoadXS.pm
-SHA1 73b6a15bfdd1e50752122de5ffee5701d83aae76 t/WriteHeader.pm
+SHA1 f02cae7124e7060dbd03f4b62113532e08b289d9 t/LoadXS.pm
+SHA1 43fd1537f25d73895173b56955777d1a73487e22 t/WriteHeader.pm
 SHA1 4888ce181df3a80c4a9d3aba10bded84863b0cf7 t/dataalias.t
 SHA1 d9af41342c613b1c11664eaa668dcd54be44ce5a t/develdeclare.t
-SHA1 7539c319b5f802f12691149045ed70f311c7cf9e t/getset0.t
-SHA1 ac5eaccec3227085bc47bc0e34725be08490e647 t/getset0.xs
-SHA1 699d480e4dd68505b0bc32c7bfd991732dfec77c t/getset1.t
-SHA1 cd7748889dd553dbf014b9bf7002d99288f4db09 t/getset1.xs
-SHA1 b3b98439052df76023d29eb7d8fac3d792d7465f t/leximport.t
-SHA1 cd706192721d6cc90d323e0eb4bf616ee7643f91 t/listquote.t
-SHA1 b9de40542c9794f83834d0fd229d9bee16d8809b t/listquote.xs
-SHA1 4973b59cfca70d97067d0646e93cc2bac99a41d0 t/multiblock.t
-SHA1 fb2adcdea40db3241cc68a99dc7b488de821299e t/multiblock.xs
+SHA1 5748d664bc5165fd5121d003eb4470b50cc5f3c1 t/getset0.t
+SHA1 013fb6c465e97a1170839702328e7a06503ca43e t/getset0.xs
+SHA1 3c377558349112ea66ec944233898312cd4835a9 t/getset1.t
+SHA1 930079ece11b2c84b51f3c01a0a6c0b8d834192c t/getset1.xs
+SHA1 ee466f8dce73755e159218d75854f2689b6aa27b t/leximport.t
+SHA1 e113e52473b5c256758f047260a71495fe6a16f5 t/listquote.t
+SHA1 39d9ea22b913c0f83258380f27cf1fc1e70b5725 t/listquote.xs
+SHA1 d3ba2dd095ffad5c682601f048a3e708abf0fe31 t/multiblock.t
+SHA1 592699ddf4bbac76dc20981f03d89ae6738eb8a4 t/multiblock.xs
 SHA1 92391f864c0d06017566d3de564b635ce995bb7e t/no_hdr.t
 SHA1 904d9a4f76525e2303e4b0c168c68230f223c8de t/pod_cvg.t
 SHA1 65c75abdef6f01a5d1588a307f2ddfe2333dc961 t/pod_syn.t
-SHA1 13d63496b263df7c49cc3d025e79d4e4179adb3b t/proto.t
-SHA1 2ab35745aa015594c2017bc759014e5f49781876 t/proto.xs
-SHA1 d10190086861482e354a7d9b7bb6a4a03419b882 t/stdargs.t
-SHA1 fd57daa7cdacfb209812443fdaba845d65731885 t/stdargs.xs
+SHA1 158022b222d469c159c555fb91f66406593bc745 t/proto.t
+SHA1 f58180dfb854241815f9fe14c94b35c2ccb46165 t/proto.xs
+SHA1 2b8289efacf2459406d33960db1434753f3b711e t/stdargs.t
+SHA1 531f4880789472ad90659594eec8085601a6f8f3 t/stdargs.xs
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAk26230ACgkQOV9mt2VyAVFknACgmbF8ICoym9i/Fmnq7kFRV646
-/SAAnit/IuzeQsJAgER+bXeiY9sFTALv
-=Mxqk
+iEYEARECAAYFAk3WsbcACgkQOV9mt2VyAVGpOwCfVVVODYzQGP0AnL/HjP2nIr4+
+CKcAn3VvRKrK9zmSqDRHrGKhIh/N6wRQ
+=5ANT
 -----END PGP SIGNATURE-----

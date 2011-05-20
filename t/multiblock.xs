@@ -1,7 +1,7 @@
 #define PERL_NO_GET_CONTEXT 1
 #include "EXTERN.h"
 #include "perl.h"
-#include "callparser0.h"
+#include "multiblock_callparser0.h"
 #include "XSUB.h"
 
 static OP *THX_parse_args_multiblock(pTHX_ GV *namegv, SV *psobj, U32 *flags_p)

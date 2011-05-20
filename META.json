@@ -16,7 +16,7 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Devel::CallChecker" : "0.001",
+            "Devel::CallChecker" : "0.002",
             "DynaLoader" : 0,
             "ExtUtils::CBuilder" : "0.15",
             "ExtUtils::ParseXS" : 0,
@@ -43,8 +43,9 @@
             "Devel::Declare" : 0
          },
          "requires" : {
-            "Devel::CallChecker" : "0.001",
+            "Devel::CallChecker" : "0.002",
             "DynaLoader" : 0,
+            "DynaLoader::Functions" : 0,
             "Exporter" : 0,
             "parent" : 0,
             "perl" : "5.011002",
@@ -56,7 +57,7 @@
    "provides" : {
       "Devel::CallParser" : {
          "file" : "lib/Devel/CallParser.pm",
-         "version" : 0
+         "version" : "0.001"
       }
    },
    "release_status" : "stable",
@@ -65,5 +66,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.000"
+   "version" : "0.001"
 }

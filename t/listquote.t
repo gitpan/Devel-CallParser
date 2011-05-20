@@ -5,10 +5,11 @@ use Test::More tests => 47;
 use t::LoadXS ();
 use t::WriteHeader ();
 
-t::WriteHeader::write_header("callparser0", "t");
+t::WriteHeader::write_header("callparser0", "t", "listquote");
 ok 1;
 require_ok "Devel::CallParser";
-t::LoadXS::load_xs("listquote", "t", ["Devel::CallParser"]);
+t::LoadXS::load_xs("listquote", "t",
+	[Devel::CallParser::callparser_linkable()]);
 ok 1;
 
 my($foo_got, $foo_ret);

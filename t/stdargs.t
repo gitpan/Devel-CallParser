@@ -15,10 +15,10 @@ use Test::More tests => 3 + 12*4*5 + 7*5;
 use t::LoadXS ();
 use t::WriteHeader ();
 
-t::WriteHeader::write_header("callparser1", "t");
+t::WriteHeader::write_header("callparser1", "t", "stdargs");
 ok 1;
 require_ok "Devel::CallParser";
-t::LoadXS::load_xs("stdargs", "t", ["Devel::CallParser"]);
+t::LoadXS::load_xs("stdargs", "t", [Devel::CallParser::callparser_linkable()]);
 ok 1;
 
 my @three = qw(a b c);

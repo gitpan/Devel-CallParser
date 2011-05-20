@@ -13,10 +13,11 @@ use Test::More tests => 17;
 use t::LoadXS ();
 use t::WriteHeader ();
 
-t::WriteHeader::write_header("callparser0", "t");
+t::WriteHeader::write_header("callparser0", "t", "multiblock");
 ok 1;
 require_ok "Devel::CallParser";
-t::LoadXS::load_xs("multiblock", "t", ["Devel::CallParser"]);
+t::LoadXS::load_xs("multiblock", "t",
+	[Devel::CallParser::callparser_linkable()]);
 ok 1;
 
 my @events;

@@ -1,7 +1,7 @@
 #define PERL_NO_GET_CONTEXT 1
 #include "EXTERN.h"
 #include "perl.h"
-#include "callparser1.h"
+#include "stdargs_callparser1.h"
 #include "XSUB.h"
 
 static OP *THX_pa_parenthesised(pTHX_ GV *namegv, SV *psobj, U32 *flags_p)

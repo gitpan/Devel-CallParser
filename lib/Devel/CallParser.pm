@@ -60,11 +60,12 @@ use warnings;
 use strict;
 
 use Devel::CallChecker 0.001 ();
+use DynaLoader::Functions 0.000 qw(linkable_for_module);
 
-our $VERSION = "0.000";
+our $VERSION = "0.001";
 
 use parent "Exporter";
-our @EXPORT_OK = qw(callparser0_h callparser1_h);
+our @EXPORT_OK = qw(callparser0_h callparser1_h callparser_linkable);
 
 {
 	require DynaLoader;
@@ -113,6 +114,16 @@ C<parse_args_proto_or_list>, as defined below, being available to the
 XS code.
 
 This header is only available on Perl versions 5.13.8 and higher.
+
+=item callparser_linkable
+
+List of names of files that must be used as additional objects when
+linking an XS module that uses the C functions supplied by this module.
+This list will be empty on many platforms.
+
+=cut
+
+sub callparser_linkable() { linkable_for_module(__PACKAGE__) }
 
 =back
 

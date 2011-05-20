@@ -68,11 +68,11 @@ Module::Build->subclass(code => q{
 		local *{"${cbclass}::link"} = sub {
 			my($self, %args) = @_;
 			if($args{module_name} eq "Devel::CallParser") {
-				require t::LoadXS;
+				require Devel::CallChecker;
+				Devel::CallChecker->VERSION(0.002);
 				$args{objects} = [
-					@{$args{objects}},
-					t::LoadXS::linkable_lib_for_module(
-						"Devel::CallChecker"),
+				    @{$args{objects}},
+				    Devel::CallChecker::callchecker_linkable(),
 				];
 			}
 			@_ = ($self, %args);
@@ -116,7 +116,6 @@ Module::Build->subclass(code => q{
 	}
 })->new(
 	module_name => "Devel::CallParser",
-	dist_version => "0.000",
 	license => "perl",
 	configure_requires => {
 		"Module::Build" => 0,
@@ -125,7 +124,7 @@ Module::Build->subclass(code => q{
 		"warnings" => 0,
 	},
 	build_requires => {
-		"Devel::CallChecker" => "0.001",
+		"Devel::CallChecker" => "0.002",
 		"DynaLoader" => 0,
 		"ExtUtils::CBuilder" => "0.15",
 		"ExtUtils::ParseXS" => 0,
@@ -138,8 +137,9 @@ Module::Build->subclass(code => q{
 		"warnings" => 0,
 	},
 	requires => {
-		"Devel::CallChecker" => "0.001",
+		"Devel::CallChecker" => "0.002",
 		"DynaLoader" => 0,
+		"DynaLoader::Functions" => 0,
 		"Exporter" => 0,
 		"parent" => 0,
 		"perl" => "5.011002",
