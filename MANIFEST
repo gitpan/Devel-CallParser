@@ -1,4 +1,4 @@
-.cvsignore
+.gitignore
 Build.PL
 Changes
 MANIFEST
@@ -6,7 +6,6 @@ META.json
 META.yml
 Makefile.PL
 README
-lib/Devel/.cvsignore
 lib/Devel/CallParser.pm
 lib/Devel/CallParser.xs
 t/LoadXS.pm
@@ -17,16 +16,19 @@ t/getset0.t
 t/getset0.xs
 t/getset1.t
 t/getset1.xs
+t/indirect.t
 t/leximport.t
 t/listquote.t
 t/listquote.xs
 t/multiblock.t
 t/multiblock.xs
 t/no_hdr.t
+t/padrange.t
 t/pod_cvg.t
 t/pod_syn.t
 t/proto.t
 t/proto.xs
 t/stdargs.t
 t/stdargs.xs
+t/substrictdecl.t
 SIGNATURE    Added here by Module::Build

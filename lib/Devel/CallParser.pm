@@ -47,9 +47,12 @@ parsed by arbitrary C code.  (This is a more conveniently structured
 facility than the core's C<PL_keyword_plugin> API.)  This module makes
 C<cv_set_call_parser> and several supporting functions available.
 
-This module provides the implementation of the functions at runtime,
-and also at compile time supplies the C header file which provides access
-to the functions.
+This module provides the implementation of the functions at runtime.
+It also, at compile time, supplies the C header file and link
+library which provide access to the functions.  In normal use,
+L</callparser0_h>/L</callparser1_h> and L</callparser_linkable> should
+be called at build time (not authoring time) for the module that wishes
+to use the C functions.
 
 =cut
 
@@ -60,9 +63,8 @@ use warnings;
 use strict;
 
 use Devel::CallChecker 0.001 ();
-use DynaLoader::Functions 0.000 qw(linkable_for_module);
 
-our $VERSION = "0.001";
+our $VERSION = "0.002";
 
 use parent "Exporter";
 our @EXPORT_OK = qw(callparser0_h callparser1_h callparser_linkable);
@@ -123,7 +125,11 @@ This list will be empty on many platforms.
 
 =cut
 
-sub callparser_linkable() { linkable_for_module(__PACKAGE__) }
+sub callparser_linkable() {
+	require DynaLoader::Functions;
+	DynaLoader::Functions->VERSION(0.001);
+	return DynaLoader::Functions::linkable_for_module(__PACKAGE__);
+}
 
 =back
 
@@ -152,7 +158,7 @@ and I<flags> is a C<U32> that the parsing function can write to as an
 additional output.  It is permitted to apply the parsing function in
 non-standard situations, such as to a call to a different subroutine.
 
-The parsing function's main output is an op tree desscribing a list of
+The parsing function's main output is an op tree describing a list of
 argument expressions.  This may be null for an empty list.  The argument
 expressions will be combined with the expression that identified I<cv> and
 used to build an C<entersub> op describing a complete subroutine call.
@@ -192,7 +198,7 @@ and I<flags> is a C<U32> that the parsing function can write to as an
 additional output.  It is permitted to apply the parsing function in
 non-standard situations, such as to a call to a different subroutine.
 
-The parsing function's main output is an op tree desscribing a list of
+The parsing function's main output is an op tree describing a list of
 argument expressions.  This may be null for an empty list.  The argument
 expressions will be combined with the expression that identified I<cv> and
 used to build an C<entersub> op describing a complete subroutine call.
@@ -362,7 +368,7 @@ Andrew Main (Zefram) <zefram@fysh.org>
 
 =head1 COPYRIGHT
 
-Copyright (C) 2011 Andrew Main (Zefram) <zefram@fysh.org>
+Copyright (C) 2011, 2013 Andrew Main (Zefram) <zefram@fysh.org>
 
 =head1 LICENSE
 

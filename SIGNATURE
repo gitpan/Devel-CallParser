@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.68.
+signed via the Module::Signature module, version 0.73.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,17 +14,16 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 5880ad202dae8ed1258b0f97614daf1ccb57d3a0 .cvsignore
-SHA1 68123b5e97d175e356b45f6608a48c6009f30ade Build.PL
-SHA1 9f60bc77bf31465332fe9211c9dc8b505f88ca10 Changes
-SHA1 aeb58591b65976dde8da38523d9f90d0360b971a MANIFEST
-SHA1 e9b31bc4061061a92808857c8cf7f1e28abeaa6d META.json
-SHA1 37b68bb3d9545e3a2c607c6efa763ef093ee6ccc META.yml
-SHA1 062456d27f39590acabc272ee7856689ceb3fb49 Makefile.PL
-SHA1 9c093e204721bb649141542a8ce1db1612a6c916 README
-SHA1 7c6ee4fff1b3bcc793df3b37eb4687994ffb6b45 lib/Devel/.cvsignore
-SHA1 7e06a954301055ebaf87bff2e9c150660767728b lib/Devel/CallParser.pm
-SHA1 606516b94dff0212ea49616fb147a49f2209a646 lib/Devel/CallParser.xs
+SHA1 5af20cd5dd4a4b5a9470fe042b378add2749e3bc .gitignore
+SHA1 68fc7d292201509b83ae7a9b45b741f599d471cd Build.PL
+SHA1 820e6b5713f56163dcb8e34e86da3d9266325307 Changes
+SHA1 61a42866a305d8fb294db15766c749f687e61c39 MANIFEST
+SHA1 fefba5c9005b268c467b615b22598d6b39fba2e1 META.json
+SHA1 93ad53fb0d2a5bc04045b8d0e0d617ffb707085a META.yml
+SHA1 a0cb26eb58b674f73ab65fd46edd9c39c6d37b82 Makefile.PL
+SHA1 4f6dbda0b8ca140a54e9443fd8d77ff02c3bdacc README
+SHA1 6b5b11b1ea249f2172c98bd1cb2fcd1aed9ac1a3 lib/Devel/CallParser.pm
+SHA1 1f4e6eac6a7586eacfa2d636cb013bd67010e57a lib/Devel/CallParser.xs
 SHA1 f02cae7124e7060dbd03f4b62113532e08b289d9 t/LoadXS.pm
 SHA1 43fd1537f25d73895173b56955777d1a73487e22 t/WriteHeader.pm
 SHA1 4888ce181df3a80c4a9d3aba10bded84863b0cf7 t/dataalias.t
@@ -33,22 +32,25 @@ SHA1 5748d664bc5165fd5121d003eb4470b50cc5f3c1 t/getset0.t
 SHA1 013fb6c465e97a1170839702328e7a06503ca43e t/getset0.xs
 SHA1 3c377558349112ea66ec944233898312cd4835a9 t/getset1.t
 SHA1 930079ece11b2c84b51f3c01a0a6c0b8d834192c t/getset1.xs
+SHA1 c221ec270184b93c0a8b299f90055911f8ca3bac t/indirect.t
 SHA1 ee466f8dce73755e159218d75854f2689b6aa27b t/leximport.t
 SHA1 e113e52473b5c256758f047260a71495fe6a16f5 t/listquote.t
 SHA1 39d9ea22b913c0f83258380f27cf1fc1e70b5725 t/listquote.xs
 SHA1 d3ba2dd095ffad5c682601f048a3e708abf0fe31 t/multiblock.t
 SHA1 592699ddf4bbac76dc20981f03d89ae6738eb8a4 t/multiblock.xs
 SHA1 92391f864c0d06017566d3de564b635ce995bb7e t/no_hdr.t
+SHA1 8f8e7017cc0756c80f6f26f33575c8f07f2bd4b9 t/padrange.t
 SHA1 904d9a4f76525e2303e4b0c168c68230f223c8de t/pod_cvg.t
 SHA1 65c75abdef6f01a5d1588a307f2ddfe2333dc961 t/pod_syn.t
 SHA1 158022b222d469c159c555fb91f66406593bc745 t/proto.t
 SHA1 f58180dfb854241815f9fe14c94b35c2ccb46165 t/proto.xs
 SHA1 2b8289efacf2459406d33960db1434753f3b711e t/stdargs.t
 SHA1 531f4880789472ad90659594eec8085601a6f8f3 t/stdargs.xs
+SHA1 dc9f48165c5b9b330f2d327a378342de541ad472 t/substrictdecl.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.10 (GNU/Linux)
+Version: GnuPG v1.4.12 (GNU/Linux)
 
-iEYEARECAAYFAk3WsbcACgkQOV9mt2VyAVGpOwCfVVVODYzQGP0AnL/HjP2nIr4+
-CKcAn3VvRKrK9zmSqDRHrGKhIh/N6wRQ
-=5ANT
+iEYEARECAAYFAlI98b0ACgkQOV9mt2VyAVEC0wCeIMqxGgnT+K2AK1ONV6FCj9j7
+7OQAn081s+zWiu1PYkKInuJbEuojFWrO
+=wINz
 -----END PGP SIGNATURE-----

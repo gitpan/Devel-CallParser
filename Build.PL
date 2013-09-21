@@ -139,7 +139,7 @@ Module::Build->subclass(code => q{
 	requires => {
 		"Devel::CallChecker" => "0.002",
 		"DynaLoader" => 0,
-		"DynaLoader::Functions" => 0,
+		"DynaLoader::Functions" => "0.001",
 		"Exporter" => 0,
 		"parent" => 0,
 		"perl" => "5.011002",
@@ -149,6 +149,7 @@ Module::Build->subclass(code => q{
 	conflicts => {
 		"Data::Alias" => "< 1.13",
 		"Devel::Declare" => "< 0.006004",
+		"indirect" => "< 0.27",
 	},
 	dynamic_config => 0,
 	meta_add => { distribution_type => "module" },

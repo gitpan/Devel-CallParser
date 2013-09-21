@@ -311,6 +311,26 @@ static int my_keyword_plugin(pTHX_
 	SV *psobj;
 	U32 parser_flags;
 	/*
+	 * Creation of the rv2cv op below (or more precisely its gv op
+	 * child created during checking) uses a pad slot under threads.
+	 * Normally this is fine, but early versions of the padrange
+	 * mechanism make assumptions about pad slots being contiguous
+	 * that this breaks.  On the affected perl versions, therefore,
+	 * we watch for the pad slot being consumed, and restore the
+	 * pad's fill pointer if we throw the op away (upon declining
+	 * to handle the keyword).
+	 *
+	 * The core bug was supposedly fixed in Perl 5.19.4, but actually
+	 * that version exhibits a different bug also apparently related
+	 * to padrange.  Restoring the pad's fill pointer works around
+	 * this bug too.  So for now this workaround is used with no
+	 * upper bound on the Perl version.
+	 */
+#define MUST_RESTORE_PAD_FILL PERL_VERSION_GE(5,17,6)
+#if MUST_RESTORE_PAD_FILL
+	I32 padfill = av_len(PL_comppad);
+#endif /* MUST_RESTORE_PAD_FILL */
+	/*
 	 * If Devel::Declare happens to be loaded, it triggers magic
 	 * upon building of an rv2cv op, assuming that it's being built
 	 * by the lexer.  Since we're about to build such an op here,
@@ -318,7 +338,8 @@ static int my_keyword_plugin(pTHX_
 	 * there's a risk that Devel::Declare could fire here, ultimately
 	 * firing twice for a single appearance of a name it's interested
 	 * in.	To suppress Devel::Declare, therefore, we temporarily
-	 * set PL_parser to null.  The same goes for Data::Alias.
+	 * set PL_parser to null.  The same goes for Data::Alias and
+	 * some other modules that use similar techniques.
 	 *
 	 * Unfortunately Devel::Declare prior to 0.006004 still does some
 	 * work at the wrong time if PL_parser is null, and Data::Alias
@@ -336,6 +357,9 @@ static int my_keyword_plugin(pTHX_
 	if(!(cv = rv2cv_op_cv(cvop, 0))) {
 		decline:
 		op_free(cvop);
+#if MUST_RESTORE_PAD_FILL
+		av_fill(PL_comppad, padfill);
+#endif /* MUST_RESTORE_PAD_FILL */
 		return next_keyword_plugin(aTHX_
 			keyword_ptr, keyword_len, op_ptr);
 	}
@@ -363,11 +387,18 @@ static SV *THX_fmt_header(pTHX_ char n, char const *content)
 		"#define "QPFXS"INCLUDED_callparser%c 1\n"
 		"#ifndef PERL_VERSION\n"
 		" #error you must include perl.h before callparser%c.h\n"
-		"#elif !(PERL_REVISION == "STRINGIFY(PERL_REVISION)" && "
-			"PERL_VERSION == "STRINGIFY(PERL_VERSION)" && "
-			"PERL_SUBVERSION == "STRINGIFY(PERL_SUBVERSION)")\n"
-		" #error this callparser%c.h is for "
-			"Perl "PERL_VERSION_STRING" only\n"
+		"#elif !(PERL_REVISION == "STRINGIFY(PERL_REVISION)
+			" && PERL_VERSION == "STRINGIFY(PERL_VERSION)
+#if PERL_VERSION & 1
+			" && PERL_SUBVERSION == "STRINGIFY(PERL_SUBVERSION)
+#endif /* PERL_VERSION & 1 */
+			")\n"
+		" #error this callparser%c.h is for Perl "
+			STRINGIFY(PERL_REVISION)"."STRINGIFY(PERL_VERSION)
+#if PERL_VERSION & 1
+			"."STRINGIFY(PERL_SUBVERSION)
+#endif /* PERL_VERSION & 1 */
+			" only\n"
 		"#endif /* Perl version mismatch */\n"
 		"%s"
 		"#endif /* !"QPFXS"INCLUDED_callparser%c */\n",
